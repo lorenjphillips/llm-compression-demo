@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 // Map UI model names to OpenAI API model names
 const modelMapping = {
