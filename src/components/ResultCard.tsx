@@ -8,9 +8,10 @@ interface ResultCardProps {
   isLoading?: boolean;
   type?: "prompt" | "response";
   tokenCount?: number;
+  isOptimal?: boolean;
 }
 
-export const ResultCard = ({ title, content, isLoading = false, type = "prompt", tokenCount }: ResultCardProps) => {
+export const ResultCard = ({ title, content, isLoading = false, type = "prompt", tokenCount, isOptimal = false }: ResultCardProps) => {
   if (isLoading) {
     return (
       <Card className="oval-card animate-pulse">
@@ -47,9 +48,9 @@ export const ResultCard = ({ title, content, isLoading = false, type = "prompt",
   }
 
   return (
-    <Card className="oval-card animate-fade-up">
+    <Card className={`oval-card animate-fade-up ${isOptimal ? 'ring-2 ring-green-500 bg-green-50' : ''}`}>
       <CardHeader className="pb-4">
-        <CardTitle className="text-lg">{title}</CardTitle>
+        <CardTitle className={`text-lg ${isOptimal ? 'text-green-700' : ''}`}>{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <ScrollArea className="h-[280px] w-full rounded-md">

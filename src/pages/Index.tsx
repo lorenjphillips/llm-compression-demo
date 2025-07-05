@@ -67,7 +67,7 @@ const Index = () => {
   const [millennialResponseError, setMillennialResponseError] = useState("");
   const [llmResponseError, setLlmResponseError] = useState("");
   const [systemPrompt, setSystemPrompt] = useState(
-    "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+    "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary of user input:'. Be concise and do not add any extra commentary."
   );
   const { toast } = useToast();
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api/chat";
@@ -266,7 +266,7 @@ const Index = () => {
             <div className="grid lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-4">
                 <div className="space-y-2">
-                  <label className="text-lg font-medium">Your Text</label>
+                  <label className="text-lg font-medium">Enter Text or Use Examples to Test Compression:</label>
                   <Textarea
                     placeholder="Paste your text here... (CMD + V)"
                     value={inputText}
@@ -398,6 +398,7 @@ const Index = () => {
                 isLoading={isLoading}
                 type="prompt"
                 tokenCount={originalTokenCount}
+                isOptimal={originalTokenCount > 0 && originalTokenCount <= millennialTokenCount && originalTokenCount <= llmOptimizedTokenCount}
               />
               <ResultCard
                 title="Millennial Compression"
@@ -405,6 +406,7 @@ const Index = () => {
                 isLoading={isLoading}
                 type="prompt"
                 tokenCount={millennialTokenCount}
+                isOptimal={millennialTokenCount > 0 && millennialTokenCount < originalTokenCount && millennialTokenCount <= llmOptimizedTokenCount}
               />
               <ResultCard
                 title="LLM Optimized Compression"
@@ -412,6 +414,7 @@ const Index = () => {
                 isLoading={isLoading}
                 type="prompt"
                 tokenCount={llmOptimizedTokenCount}
+                isOptimal={llmOptimizedTokenCount > 0 && llmOptimizedTokenCount < originalTokenCount && llmOptimizedTokenCount < millennialTokenCount}
               />
             </div>
             <SavingsBanner
@@ -443,6 +446,11 @@ const Index = () => {
                 type="response"
                 tokenCount={llmOptimizedOutputTokenCount}
               />
+            </div>
+            <div className="bg-gray-100 text-gray-600 rounded-xl px-6 py-4 flex items-center justify-center gap-3 shadow-sm mt-4">
+              <span className="text-base font-medium">
+                Compare the outputs yourself to see if the compression made an effect on AI's understanding of your original prompt
+              </span>
             </div>
           </div>
         )}

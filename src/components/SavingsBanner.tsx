@@ -44,7 +44,7 @@ export const SavingsBanner = ({ originalTokens, millennialTokens, llmOptimizedTo
       <div className="flex flex-row items-center justify-center text-red-800 mt-4 text-base font-medium w-full text-center">
         <div className="text-center">
           <div className="mb-2">
-            Over-compression <b>increased</b> your token count compared to the original!
+            Millennial over-compression <b>increased</b> your token count compared to the original!
           </div>
           <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-normal mb-2">
             <span><b>Original:</b> {originalTokens.toLocaleString()} tokens</span>
