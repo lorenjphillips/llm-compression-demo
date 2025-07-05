@@ -8,14 +8,16 @@ import { CompressionPatterns } from "@/components/CompressionPatterns";
 import { TokenizationModal } from "@/components/TokenizationModal";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown, Zap, RotateCcw, HelpCircle } from "lucide-react";
+import { ChevronDown, Zap, RotateCcw, HelpCircle, Info } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { compressText, type CompressionResult, llmTokenOptimize } from "@/lib/textCompression";
+import { compressText, type CompressionResult, llmTokenOptimize, analyzeCompression } from "@/lib/textCompression";
 import { WavyBackground } from "@/components/WavyBackground";
 import { cn } from "@/lib/utils";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const EXAMPLES = [
   // Default example
@@ -46,6 +48,46 @@ const getOpenAITokenCount = async (text: string) => {
     return Math.ceil((text?.length || 0) / 4);
   }
 };
+
+const LlmCompressionAnalysis = ({ original, optimized }: { original: string; optimized: string }) => {
+  const analysis = analyzeCompression(original, optimized);
+  return (
+    <Card className="bg-content1 border-1 shadow-sm rounded-xl">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-lg">
+          LLM Optimized Analysis
+        </CardTitle>
+        <div className="flex gap-4 text-sm text-muted-foreground">
+          <span>Tokens saved: <strong className="text-primary">{analysis.tokenSavings}</strong></span>
+          <span>Reduction: <strong className="text-primary">{(analysis.efficiency * 100).toFixed(1)}%</strong></span>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <div className="text-xs text-muted-foreground">
+          Removes stopwords and transition words to reduce tokens, without using slang or abbreviations.
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+const BaselineAnalysis = ({ original, tokenCount }: { original: string; tokenCount: number }) => (
+  <Card className="bg-content1 border-1 shadow-sm rounded-xl">
+    <CardHeader className="pb-3">
+      <CardTitle className="text-lg">
+        Baseline (No Compression)
+      </CardTitle>
+      <div className="flex gap-4 text-sm text-muted-foreground">
+        <span>Tokens: <strong className="text-primary">{tokenCount}</strong></span>
+      </div>
+    </CardHeader>
+    <CardContent>
+      <div className="text-xs text-muted-foreground">
+        This is your original, uncompressed prompt. It provides a baseline for token count and cost comparison.
+      </div>
+    </CardContent>
+  </Card>
+);
 
 const Index = () => {
   const [inputText, setInputText] = useState(DEFAULT_EXAMPLE);
@@ -384,13 +426,42 @@ const Index = () => {
         </Card>
         {showResults && (
           <div className="space-y-8">
-            {compressionResult && !isLoading && (
-              <CompressionPatterns
-                patterns={compressionResult.patterns}
-                compressionRatio={compressionResult.compressionRatio}
-                tokensSaved={compressionResult.tokensSaved}
-              />
-            )}
+            {/* Three analysis cards side by side */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Baseline */}
+              <BaselineAnalysis original={inputText} tokenCount={originalTokenCount} />
+              {/* Millennial Compression Analysis */}
+              {compressionResult && !isLoading ? (
+                <Card className="bg-content1 border-1 shadow-sm rounded-xl">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg">
+                      Millennial Compression Analysis
+                    </CardTitle>
+                    <div className="flex gap-4 text-sm text-muted-foreground">
+                      <span>Tokens saved: <strong className="text-primary">{compressionResult.tokensSaved}</strong></span>
+                      <span>Reduction: <strong className="text-primary">{compressionResult.compressionRatio.toFixed(1)}%</strong></span>
+                      <span>Patterns used: <strong className="text-primary">{compressionResult.patterns.length}</strong></span>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <ScrollArea className="h-32">
+                      <div className="flex flex-wrap gap-2">
+                        {compressionResult.patterns.map((pattern, index) => (
+                          <Badge key={index} variant="secondary" className="text-xs">
+                            {pattern}
+                          </Badge>
+                        ))}
+                      </div>
+                    </ScrollArea>
+                  </CardContent>
+                </Card>
+              ) : <div />}
+              {/* LLM Optimized Compression Analysis */}
+              {llmOptimizedPrompt && !isLoading ? (
+                <LlmCompressionAnalysis original={inputText} optimized={llmOptimizedPrompt} />
+              ) : <div />}
+            </div>
+            {/* Prompt result cards */}
             <div className="grid lg:grid-cols-3 gap-6">
               <ResultCard
                 title="Original Prompt"
