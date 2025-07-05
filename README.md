@@ -128,208 +128,85 @@ OPENAI_API_KEY=your_openai_key_here
 # Text Compression Algorithm: Regex-Based Slang & Abbreviation System
 
 ## Overview
-Create a text compression algorithm that uses regex patterns to transform standard English into compact texting/millennial slang while preserving semantic meaning for LLM comprehension. The goal is maximum size reduction with minimal information loss.
+This project implements two text compression algorithms for reducing text size while preserving meaning for LLM comprehension:
+
+1. **LLM-Optimized Compression**: Removes stopwords, transition words, and unnecessary punctuation for maximum token efficiency.
+2. **Millennial Slang Compression**: Uses regex patterns to transform standard English into compact texting/millennial slang, abbreviations, and meme/emoji substitutions.
+
+## Compression Modes
+
+### 1. LLM-Optimized Compression
+- **Function:** `llmTokenOptimize(text)`
+- **Purpose:** Aggressively reduces token count for LLM input by:
+  - Removing common English stopwords (e.g., the, a, of, to, for, etc.).
+  - Removing transition words/phrases (e.g., however, therefore, in conclusion, etc.).
+  - Removing most punctuation except sentence boundaries (keeps `.`, `!`, `?`).
+  - Normalizing whitespace and trimming leading/trailing punctuation.
+- **Result:** Highly compressed, information-dense text that is optimized for LLM tokenization, but may be less human-readable.
+
+### 2. Millennial Slang Compression
+- **Function:** `compressText(text, level)` (use `level = 2` for full effect)
+- **Purpose:** Applies a prioritized set of regex-based patterns to:
+  - Replace words/phrases with popular texting abbreviations (e.g., `you → u`, `for → 4`, `with → w/`).
+  - Substitute number-letter phonetics (e.g., `great → gr8`, `tonight → 2nite`).
+  - Add common internet slang and meme language (e.g., `omg`, `lol`, `tbh`, `idk`).
+  - Reduce vowels in longer words (e.g., `between → btwn`).
+  - Replace some words with emoji or meme terms (e.g., `crying → 😭`, `laugh → 😂`).
+- **Result:** Text that is compact, slang-heavy, and meme-infused, balancing compression and human/LLM readability.
 
 ## Core Principles
+- **Semantic Preservation:**
+  - Maintains sentence structure and grammar.
+  - Preserves key information words and essential punctuation.
+  - Ensures LLMs can still parse intent and context.
 
-### 1. Semantic Preservation
-- Maintain sentence structure and grammar
-- Preserve key information words (nouns, verbs, adjectives)
-- Keep punctuation that affects meaning
-- Ensure LLM can still parse intent and context
+## Usage
+- **LLM-Optimized:**
+  - `llmTokenOptimize(text)`
+- **Millennial Slang:**
+  - `compressText(text, 2)`
+  - `decompressText(compressedText, 2)` (attempts to reverse slang compression for one-to-one mappings)
 
-### 2. Compression Priorities (in order)
-1. **Popular texting abbreviations** (u, ur, 2, 4, etc.)
-2. **Vowel reduction** in non-critical words
-3. **Common word substitutions** (and → &, with → w/, etc.)
-4. **Number-letter substitutions** (to → 2, for → 4, ate → 8)
-5. **Contraction expansion** then re-compression
+## Implementation Details
+- **Pattern Application (Slang):**
+  - Patterns are applied in order of priority.
+  - Case is preserved for each replacement.
+  - Extra spaces and spaces before punctuation are cleaned up after all replacements.
+- **Decompression:**
+  - There is a reverse mapping for decompression, but it is only as good as the one-to-one mappings in the pattern descriptions.
+- **Quality Assurance:**
+  - Functions exist to validate compression quality (readability, punctuation, etc.).
+  - Character reduction percentage, word count reduction, and readability score are calculated.
 
-## Implementation Strategy
+## Examples
+- **LLM-Optimized:**
+  - Input: `"This is an example of how the compression works, and why it matters."`
+  - Output: `example compression works matters.`
+- **Millennial Slang:**
+  - Input: `"Are you going to the party tonight?"`
+  - Output: `u gonna rager 2nite?`
 
-### Phase 1: Pre-processing
-- Convert to lowercase (preserve proper nouns)
-- Tokenize while preserving punctuation
-- Identify word boundaries and sentence structure
+---
 
-### Phase 2: Primary Transformations (Regex Patterns)
+## Bonus: Future & Wild Ideas (Not Yet Implemented)
 
-#### A. Essential Word Replacements
-```
-you → u
-your → ur  
-you're → ur
-to → 2
-too → 2
-for → 4
-before → b4
-because → bc
-and → &
-with → w/
-without → w/o
-about → abt
-something → smth
-nothing → nthn
-```
+The following are ambitious or experimental features that may be added in the future:
 
-#### B. Number-Letter Phonetic Substitutions
-```
-great → gr8
-late → l8
-wait → w8
-mate → m8
-create → cr8
-ate/eat → 8
-tonight → 2nite
-today → 2day
-tomorrow → 2morrow
-```
+- **Multiple Compression Levels:**
+  - Ranging from conservative (tokenizer-aware) to ultra-aggressive (meme/emoji/Gen Z speak, extreme vowel destruction).
+- **Context-Aware Reductions:**
+  - Smarter handling of articles, prepositions, and contractions based on context.
+- **Advanced Vowel Destruction:**
+  - Multi-pattern vowel reduction for maximum compression, while preserving readability and essential consonants.
+- **Proper Noun & Technical Term Preservation:**
+  - Protecting names, technical terms, URLs, emails, and code from over-compression.
+- **Readability Scoring & Balancing:**
+  - Dynamically adjusting compression aggressiveness to balance size reduction and human/LLM comprehension.
+- **Reversibility Testing:**
+  - Maintain a reverse mapping dictionary and test decompression accuracy.
+- **Domain-Specific Abbreviations:**
+  - Custom slang/abbreviation sets for technical, medical, or other specialized domains.
+- **Demo & Analytics Tools:**
+  - Functions to showcase and compare all compression levels, analyze savings, and visualize readability.
 
-#### C. Common Abbreviations
-```
-probably → prob
-definitely → def
-obviously → obv
-literally → lit
-actually → acc
-seriously → srsly
-especially → esp
-```
-
-#### D. Vowel Reduction (Secondary Priority)
-```
-Apply to words >4 letters:
-- Remove vowels from middle of words
-- Keep first and last letters
-- Preserve double consonants
-- Examples: between → btwn, through → thru
-```
-
-### Phase 3: Advanced Optimizations
-
-#### A. Contraction Handling
-- can't → cant
-- won't → wont  
-- shouldn't → shldnt
-- would've → wldve
-
-#### B. Article and Preposition Reduction
-```
-the → th (in non-critical contexts)
-this → ths
-that → tht
-from → frm
-them → thm
-```
-
-#### C. Ending Simplifications
-```
--ing → -n (when unambiguous)
--tion → -shn
--ed → -d (when phonetically clear)
-```
-
-## Pattern Implementation Guidelines
-
-### Regex Construction Rules
-1. **Word boundary anchoring**: Use `\b` to ensure whole-word matches
-2. **Case sensitivity**: Handle both cases or normalize first
-3. **Context awareness**: Avoid replacements that create ambiguity
-4. **Ordering matters**: Apply transformations in priority order
-
-### Example Pattern Structure
-```
-# Replace "you" with "u" (word boundaries)
-\byou\b → u
-
-# Replace "great" with "gr8" 
-\bgreat\b → gr8
-
-# Vowel reduction for longer words
-\b([bcdfghjklmnpqrstvwxyz])([aeiou])([bcdfghjklmnpqrstvwxyz]{2,})([aeiou])([bcdfghjklmnpqrstvwxyz])\b
-→ $1$3$5
-```
-
-## Compression Dictionary Structure
-
-### Primary Dictionary (Highest Impact)
-- Single character replacements: you→u, and→&
-- Number substitutions: to→2, for→4, great→gr8
-- Common texting: because→bc, with→w/, about→abt
-
-### Secondary Dictionary (Moderate Impact)  
-- Vowel reductions: between→btwn, through→thru
-- Abbreviations: probably→prob, definitely→def
-- Contractions: can't→cant, won't→wont
-
-### Tertiary Dictionary (Fine-tuning)
-- Article reductions: the→th (context-dependent)
-- Ending modifications: -ing→-n, -tion→-shn
-
-## Quality Assurance Measures
-
-### Reversibility Testing
-- Maintain reverse mapping dictionary
-- Test decompression accuracy
-- Verify LLM comprehension on samples
-
-### Semantic Validation
-- Compare LLM responses to compressed vs original text
-- Measure information retention rates
-- Test on various text types (formal, casual, technical)
-
-### Compression Metrics
-- Character reduction percentage
-- Word count reduction
-- Readability preservation score
-
-## Implementation Workflow
-
-1. **Build comprehensive regex pattern library**
-2. **Create ordered transformation pipeline**
-3. **Implement conflict resolution** (when multiple patterns match)
-4. **Add context-awareness logic**
-5. **Test and refine** with diverse text samples
-6. **Optimize pattern ordering** for maximum compression
-
-## New Level 4: Ultra Features 🚀
-
-### Peak Millennial Slang
-- **Internet classics**: omg, lol, rofl, btw, fr, ngl, tbh, imo, idk, wtf, smh
-- **Gen Z favorites**: nocap, deds (deadass), nw (no worries), wtv (whatever)
-- **Text shortcuts**: ttyl, cyl, gn, gm, gl, hf, hbd, grtz
-
-### Extreme Number/Letter Substitutions
-- **8-series**: ate→8, eat→8, str8, f8, d8, g8, h8, r8, st8, upd8, celebr8
-- **1-series**: once→1ce, won→1, one→1, any1, sum1, every1, no1
-
-### Aggressive Vowel Destruction
-- **Smart vowel nuking**: Keeps first letter, essential consonants, last letter
-- **Examples**: computer→cmptr, internet→intrnt, government→gvrnmt
-- **Multi-pattern vowel reduction** for maximum compression
-
-### Enhanced Features
-- **Proper noun preservation**: Protects names and important terms
-- **Smart pattern ordering**: Prevents conflicts between rules
-- **Readability scoring**: Balances compression vs. comprehension
-- **Demo function**: Test all levels at once
-
-## Compression Targets by Level
-
-- **Level 1**: 10-15% reduction (conservative)
-- **Level 2**: 20-30% reduction (balanced)
-- **Level 3**: 35-50% reduction (aggressive)
-- **Level 4**: 50-70%+ reduction (ULTRA 🔥)
-
-## Expected Outcomes
-- Up to 70%+ character reduction with Level 4 Ultra
-- 10-60% word count reduction depending on level
-- High LLM comprehension retention (>95%)
-- Fast processing speed due to regex efficiency
-
-## Special Considerations
-- Preserve technical terms and proper nouns
-- Handle edge cases (URLs, emails, code)
-- Maintain readability for human verification
-- Consider domain-specific abbreviations
-- Plan for pattern updates and refinements 
+*These features are not present in the current implementation, but are under consideration for future releases.* 
