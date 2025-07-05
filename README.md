@@ -68,8 +68,60 @@ bun run build
 ```
 
 ### 7. Deployment
-- Deploy the `dist/` output (frontend) and backend as per your hosting provider's instructions (Vercel, Netlify, AWS, etc).
-- Set environment variables in your deployment environment as needed.
+
+#### Vercel Deployment (Recommended)
+This project is configured for Vercel deployment with serverless functions.
+
+##### First-time Setup:
+1. **Install Vercel CLI** (if not already installed):
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Login to Vercel**:
+   ```bash
+   vercel login
+   ```
+
+3. **Deploy with confirmation**:
+   ```bash
+   vercel --prod --yes
+   ```
+
+##### Environment Variables:
+After deployment, you must configure the OpenAI API key:
+
+1. Go to your Vercel project dashboard:
+   - Visit: https://vercel.com/dashboard
+   - Select your project (coval-compression)
+
+2. Navigate to **Settings → Environment Variables**
+
+3. Add the following variable:
+   - **Name**: `OPENAI_API_KEY`
+   - **Value**: Your OpenAI API key (starts with `sk-`)
+
+4. **Redeploy** after adding the environment variable:
+   ```bash
+   vercel --prod --yes
+   ```
+
+##### Local Development with Vercel:
+```bash
+# Start local development server with serverless functions
+vercel dev
+```
+
+Make sure you have a `.env.local` file with your OpenAI API key:
+```env
+OPENAI_API_KEY=your_openai_key_here
+```
+
+#### Project Structure:
+- Frontend: Built with Vite + React + TypeScript
+- API Functions: `/api/chat.js` and `/api/tokenize.js` (serverless functions)
+- Build Output: `dist/` directory
+- Configuration: `vercel.json` handles build and function settings
 
 ---
 
