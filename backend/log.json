@@ -1,0 +1,1523 @@
+[
+  {
+    "timestamp": "2025-07-04T06:04:26.005Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Hello this is loren"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Hello Loren! How can I assist you today?",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 22,
+        "completion_tokens": 10,
+        "total_tokens": 32,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T06:04:28.406Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Hello ths is loren"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Hello Loren! How can I assist you today?",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 23,
+        "completion_tokens": 10,
+        "total_tokens": 33,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T06:06:23.971Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Hello this is loren"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Hello Loren! How can I assist you today?",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 22,
+        "completion_tokens": 10,
+        "total_tokens": 32,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T06:06:25.449Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Hello ths is lrn"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Hello! It seems like you meant to type something different, but I'm here to help. How can I assist you today?",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 23,
+        "completion_tokens": 25,
+        "total_tokens": 48,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T06:09:16.864Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "\"Oh my god, you literally won't believe what happened today! I was waiting for my mate to create something awesome for tonight, because obviously everyone knows that you're going to be late to the university celebration. Before you ask, definitely not gonna lie - this is seriously the greatest thing that has ever happened to anyone! The government people were probably thinking about the important situation between different organizations, but actually I don't know if that makes sense. By the way, thank you for understanding that we should update the computer technology information through the internet. Whatever happens tomorrow, we won't forget this perfect experience, and we'll definitely remember to celebrate with everyone tonight. For real though, you need to eat something great before the date, mate!\""
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It sounds like you've had an exciting day full of anticipation and interesting events! You're waiting for your friend to create something awesome for the university celebration, and it seems like there's a lot of excitement surrounding it. While the specifics about the government situation and technology updates might be a bit unclear, the enthusiasm for the celebration is definitely clear. Make sure you enjoy the festivities and take some time to relax and eat something good before heading out to celebrate. Have a great time!",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 160,
+        "completion_tokens": 93,
+        "total_tokens": 253,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T06:09:19.558Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "\"Oh my god, u lit wont blve what hppnd 2day! I was wtn 4 my m8 2 cr8 smth awsm 4 2nite, bc obv every1 knws tht u're gon 2 be l8 2 th unty clbrshn. Before u ask, def ngl - ths is srly th grtst thn tht has ever hppnd 2 any1! th gvmt ppl were prob thnkn abt th imnt stshn btwn dfnt orgnztns, but acc idk if tht ms. By th way, thnk u 4 undrtndn tht we shld upd8 th cmtr tcgy infrmshn thru th innt. Whatever hppns 2morrow, we wont frgt ths prct xpnc, & we'll def rmbr 2 celebr8 w/ every1 2nite. 4 real tho, u need 2 8 smth gr8 b4 th d8, m8!\""
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Oh my god, you literally won't believe what happened today! I was waiting for my mate to create something awesome for tonight, because obviously everyone knows that you're going to be late to the unity celebration. Before you ask, definitely not going to lie - this is seriously the greatest thing that has ever happened to anyone! The government people were probably thinking about the imminent situation between different organizations, but actually, I don't know if that makes sense. By the way, thank you for understanding that we should update the computer technology information through the internet. Whatever happens tomorrow, we won't forget this perfect experience, and we'll definitely remember to celebrate with everyone tonight. For real though, you need to eat something great before the date, mate!",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 245,
+        "completion_tokens": 145,
+        "total_tokens": 390,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T06:13:45.014Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Hello"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Hello! How can I assist you today?",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 18,
+        "completion_tokens": 9,
+        "total_tokens": 27,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T06:13:45.332Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Hello"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Hello! How can I assist you today?",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 18,
+        "completion_tokens": 9,
+        "total_tokens": 27,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T17:58:52.934Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Oh my god, you literally won't believe what happened today! I was waiting for my mate to create something awesome for tonight, because obviously everyone knows that you're going to be late to the university celebration. Before you ask, definitely not gonna lie - this is seriously the greatest thing that has ever happened to anyone! The government people were probably thinking about the important situation between different organizations, but actually I don't know if that makes sense. By the way, thank you for understanding that we should update the computer technology information through the internet. Whatever happens tomorrow, we won't forget this perfect experience, and we'll definitely remember to celebrate with everyone tonight. For real though, you need to eat something great before the date, mate!"
+        }
+      ],
+      "model": "gpt-3.5-turbo"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It sounds like you had quite an eventful day! I'm glad to hear that something exciting happened. It's great that you're looking forward to celebrating and having a good time with your friends. \n\nJust a friendly reminder to make sure you eat something delicious and nutritious before your date. Taking care of yourself is important too. Enjoy the celebration and have a fantastic time tonight! If you need any more advice or assistance, feel free to ask.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 165,
+        "completion_tokens": 90,
+        "total_tokens": 255,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T17:58:54.830Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Oh my god, u lit wont blve what hppnd 2day! I was $1n 4 my m8 2 cr8 smth awsm 4 2nite, bc obv every1 knws tht u're $1n 2 be l8 2 th unty $1shn. Before u ask, def ngl - ths is srly th grtst $1n tht has ever hppnd 2 any1! Th gvmt ppl were prob $1n abt th imnt $1shn btwn dfnt orgnztns, but acc Idk if tht ms. By th way, thnk u 4 $1n tht we shld upd8 th cmtr tcgy $1shn thru th innt. Whatever hppns 2morrow, we wont frgt ths prct xpnc, & we'll def rmbr 2 celebr8 w/ every1 2nite. 4 real tho, u need 2 8 smth gr8 b4 th d8, m8!"
+        }
+      ],
+      "model": "gpt-3.5-turbo"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It sounds like you had quite an eventful day! I'm glad you're excited about whatever happened and the plans you have for tonight. If you need help with anything or need suggestions for a great activity or gift before your date tonight, feel free to ask!",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 250,
+        "completion_tokens": 53,
+        "total_tokens": 303,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T18:01:33.116Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "omg u lit won't believe what happened 2day! I was waiting 4 my m8 2 cr8 sth awesome 4 2nite, bc obv everyone knows that ur going 2 be l8 2 the university celebration. b4 u ask, def ngl - this is seriously the gr8est thing that has ever happened 2 anyone! The government ppl were prob thinking abt the important situation btwn different organizations, but actually idk if that makes sense. btw thx 4 understanding that we should update the computer technology info thru the internet. Whatever happens 2morrow, we won't forget this perfect experience & we'll def remember 2 celebrate w/ everyone 2nite. fr tho u need 2 eat sth gr8 b4 the d8 m8!\""
+        }
+      ],
+      "model": "gpt-3.5-turbo"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It sounds like you had quite the eventful day! It's awesome that your friend is creating something cool for tonight's celebration. It's always great to make special memories with friends. Remember to stay updated on computer technology through the internet, as it's important to keep up with the latest advancements. And yes, eating something delicious before your date tonight is a good idea! Have a fantastic time celebrating at the university event and enjoy the evening with everyone.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 186,
+        "completion_tokens": 91,
+        "total_tokens": 277,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-04T18:01:34.551Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "omg u lit wont blve what hppnd 2day! I was $1n 4 my m8 2 cr8 sth awsm 4 2nite, bc obv every1 knws tht ur $1n 2 be l8 2 th unty $1shn. b4 u ask, def ngl - ths is srly th gr8est $1n tht has ever hppnd 2 any1! Th gvmt ppl were prob $1n abt th imnt $1shn btwn dfnt orgnztns, but acc idk if tht ms. btw thx 4 $1n tht we shld upd8 th cmtr tcgy info thru th innt. Whatever hppns 2morrow, we wont frgt ths prct xpnc & we'll def rmbr 2 celebr8 w/ every1 2nite. fr tho u need 2 8 sth gr8 b4 th d8 m8!\""
+        }
+      ],
+      "model": "gpt-3.5-turbo"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It sounds like you had quite an eventful day! I'm glad to hear that things worked out well for you. If you need any assistance or advice on creating something awesome for tonight, feel free to let me know!",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 236,
+        "completion_tokens": 45,
+        "total_tokens": 281,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:30:13.681Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Escalate to Human Agent"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It seems like you might need assistance beyond what I can provide. Please reach out directly to a customer support representative or human agent through the appropriate contact method for your situation, such as a phone number, email, or live chat option on the relevant website or service platform. If you need further guidance on how to contact them, feel free to ask!",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 23,
+        "completion_tokens": 70,
+        "total_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:30:18.419Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Escalate 2 Human Agent"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "If you're experiencing an issue and need assistance from a human agent, I recommend trying the following steps:\n\n1. **Check Help/Support Section:** Look for a 'Contact Us', 'Help', or 'Support' section on the website or app you're using. Companies often provide specific ways to reach their support team.\n\n2. **Live Chat:** Many services offer a live chat feature where you can speak directly with an agent. Look for an option to chat with a human.\n\n3. **Phone Support:** If available, calling is often the quickest way to speak directly with a human agent. Check the website for a support phone number.\n\n4. **Email Support:** Sending an email to the support team can also be a way to describe your problem in detail. It may take longer to get a response, however.\n\n5. **Social Media:** Some companies provide support through their social media channels like Twitter or Facebook. You can try reaching out there if other methods fail.\n\n6. **Online Forums/Communities:** Sometimes community forums related to the service can provide guidance or direct ways to reach human support.\n\nIf I can assist you with any specific steps or have additional related questions, feel free to ask!",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 24,
+        "completion_tokens": 241,
+        "total_tokens": 265,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:33:07.581Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "This field is used to define the agent's behavior and capabilities. The system prompt will be used to: - Generate workflows and conversation flows - Define how the agent should respond to different scenarios - Set the tone and personality of the agent - Establish guidelines for handling user interaction\n"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It sounds like you're describing the process of setting up a system prompt or configuration for a conversational agent or AI system. Here's a breakdown of the key points and how you might approach each aspect:\n\n1. **Generate Workflows and Conversation Flows:**\n   - Design the logical structures and sequences that the agent will follow during interactions.\n   - Outline different paths and decision points based on user inputs.\n   - Include fallback scenarios for handling unexpected or ambiguous requests.\n\n2. **Define Agent Responses:**\n   - Create templates or scripts for how the agent should respond to specific questions or situations.\n   - Use conditionals to adapt responses based on context, user history, or other variables.\n   - Ensure that responses are clear, informative, and aligned with the agent’s purpose.\n\n3. **Set Tone and Personality:**\n   - Decide on a consistent tone of voice to be used across all interactions (e.g., friendly, professional, casual).\n   - Develop a personality profile for the agent that dictates how it communicates (e.g., humorous, empathetic, straightforward).\n   - Use language and phrasing that aligns with this tone and personality.\n\n4. **Guidelines for User Interaction:**\n   - Establish rules for maintaining respectful and helpful communication.\n   - Define thresholds for when to escalate to a human agent or provide alternative resources.\n   - Include safety protocols for sensitive or potentially harmful topics.\n\nBy clearly defining these elements, you can create a cohesive and effective system prompt that will guide your agent in delivering consistent and valuable interactions with users.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 71,
+        "completion_tokens": 307,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:33:12.316Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "This field is used 2 define the agent's behavior & capabilities. The system prompt will be used 2: - Generate workflows & conversation flows - Define how the agent should respond 2 different scenarios - Set the tone & personality of the agent - Establish guidelines 4 handling user interaction"
+        }
+      ],
+      "model": "gpt-4o"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "It sounds like you're referring to a \"system prompt\" or a \"behavior definition\" for an AI or conversational agent. This is a critical component in designing an AI system as it establishes the framework within which the AI operates. Here's a breakdown of each aspect mentioned:\n\n1. **Generate Workflows & Conversation Flows**: This involves outlining the paths and interactions the agent can take during a conversation. It includes designing process maps that help the AI understand different user inputs and respond appropriately through various stages of interaction.\n\n2. **Define Responses to Different Scenarios**: For this, you create specific guidelines or scripts for how the agent should act in various situations, including common questions, troubleshooting, and error recovery. This helps ensure your agent is consistent and effective.\n\n3. **Set the Tone & Personality of the Agent**: You must decide on the personality traits of the agent. Whether the tone is formal, casual, friendly, or professional depends on the target audience and the context of use. This will guide how the agent crafts its responses.\n\n4. **Establish Guidelines for Handling User Interaction**: Setting clear rules about how to manage challenging situations, such as handling abusive language, addressing misunderstandings, or escalating issues to a human representative, helps in maintaining quality and user satisfaction.\n\nOverall, the system prompt serves as the initial advising input that shapes the AI's operational strategy and response dynamics. To build a robust system prompt, consider conducting user research, gathering input from stakeholders, and iterating based on feedback and performance analysis.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 74,
+        "completion_tokens": 306,
+        "total_tokens": 380,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:51:38.298Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "Compress and summarize the following text to exactly 2 sentences, preserving all key information. Output only the summary, starting with 'Summary:'. Do not add any extra commentary or explanation."
+        },
+        {
+          "role": "user",
+          "content": "The selected model is now clearly distinguished without the intrusive checkmark, and all pricing information is\n   properly aligned and visible"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The selected model is now clearly distinguished without the intrusive checkmark. Additionally, all pricing information is properly aligned and visible.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 72,
+        "completion_tokens": 26,
+        "total_tokens": 98,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:51:39.320Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 1 sentence. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "The selected model is now clearly distinguished without the intrusive checkmark, and all pricing information is\n   properly aligned and visible"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The selected model is clearly distinguished without a checkmark, and all pricing information is properly aligned and visible.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 75,
+        "completion_tokens": 23,
+        "total_tokens": 98,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:51:44.129Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 1 sentence. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "The selected model is now clearly distinguished w/o the intrusive checkmark, & all $1n infrmshn is properly aligned & visible"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The selected model is now clearly distinguished without the intrusive checkmark, and all information is properly aligned and visible.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 79,
+        "completion_tokens": 24,
+        "total_tokens": 103,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:51:46.088Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Summary: The selected model is now clearly distinguished without the intrusive checkmark. Additionally, all pricing information is properly aligned and visible."
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "The selected model is now clearly highlighted without the intrusive checkmark, and all pricing information is properly aligned and fully visible.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 43,
+        "completion_tokens": 24,
+        "total_tokens": 67,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:59:43.300Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "Compress and summarize the following text to exactly 2 sentences, preserving all key information. Output only the summary, starting with 'Summary:'. Do not add any extra commentary or explanation."
+        },
+        {
+          "role": "user",
+          "content": "However, the results of our experiment were not as expected. Therefore, we decided to try a different approach. The team worked together, brainstorming ideas late into the night. In the end, we found a solution that was both effective and innovative. Thank you all for your hard work and dedication!"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: Our experiment's results were unexpected, prompting us to try a different approach. After late-night brainstorming, the team found an effective and innovative solution, and we appreciate everyone's hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 107,
+        "completion_tokens": 40,
+        "total_tokens": 147,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:59:44.818Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "However, the results of our experiment were not as expected. Therefore, we decided to try a different approach. The team worked together, brainstorming ideas late into the night. In the end, we found a solution that was both effective and innovative. Thank you all for your hard work and dedication!"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The experiment's results were unexpected, leading the team to pursue a different approach. They collaborated and brainstormed late into the night. Ultimately, they discovered an effective and innovative solution, appreciating everyone's hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 45,
+        "total_tokens": 155,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:59:45.746Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "$1wever, the $1sults of $1r experiment $1re $1t as expected. Therefore, $1 $1cided 2 try a $1fferent approach. The $1m $1rked $1gether, brainstorming ideas l8 into the $1ght. In the end, $1 $1nd a $1lution that $1s $1th effective & innovative. Thank u all 4 ur $1rd $1rk & $1dication!"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: However, the results of our experiment are not as expected. Therefore, we decided to try a different approach and brainstormed ideas late into the night. In the end, we found a solution that was both effective and innovative, thanking everyone for their hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 159,
+        "completion_tokens": 56,
+        "total_tokens": 215,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T01:59:46.456Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant."
+        },
+        {
+          "role": "user",
+          "content": "Summary: Our experiment's results were unexpected, prompting us to try a different approach. After late-night brainstorming, the team found an effective and innovative solution, and we appreciate everyone's hard work and dedication."
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Our experiment yielded unexpected results, leading us to explore a new approach. After late-night brainstorming, the team developed an effective and innovative solution. We appreciate everyone's hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 57,
+        "completion_tokens": 36,
+        "total_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:03:24.374Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "However, the results of our experiment were not as expected. Therefore, we decided to try a different approach. The team worked together, brainstorming ideas late into the night. In the end, we found a solution that was both effective and innovative. Thank you all for your hard work and dedication!"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The experiment's results were unexpected, prompting the team to seek a new approach. They collaborated intensively, brainstorming late into the night. Ultimately, they discovered an effective and innovative solution, demonstrating their hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 46,
+        "total_tokens": 156,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:03:25.286Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "$1wever, the $1sults of $1r experiment $1re $1t as expected. Therefore, $1 $1cided 2 try a $1fferent approach. The $1m $1rked $1gether, brainstorming ideas l8 into the $1ght. In the end, $1 $1nd a $1lution that $1s $1th effective & innovative. Thank u all 4 ur $1rd $1rk & $1dication!"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: However, the results of our experiment are not as expected. Therefore, we decided to try a different approach and worked together, brainstorming ideas late into the night. In the end, we found a solution that was both effective and innovative, and we thank everyone for their hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 159,
+        "completion_tokens": 60,
+        "total_tokens": 219,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:03:26.525Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "results experiment expected. decided try different approach. team worked together brainstorming ideas late into night. end found solution effective innovative. Thank hard work dedication"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The experiment results did not meet expectations, prompting a different approach. The team collaborated and brainstormed ideas late into the night. Ultimately, they found an effective and innovative solution, appreciating everyone's hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 79,
+        "completion_tokens": 44,
+        "total_tokens": 123,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:10:41.120Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "However, the results of our experiment were not as expected. Therefore, we decided to try a different approach. The team worked together, brainstorming ideas late into the night. In the end, we found a solution that was both effective and innovative. Thank you all for your hard work and dedication!"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The experiment's results were unexpected, prompting the team to try a different approach. They collaborated and brainstormed ideas late into the night. Ultimately, they found an effective and innovative solution.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 39,
+        "total_tokens": 149,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:10:42.763Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "$1wever, the $1sults of $1r experiment $1re $1t as expected. Therefore, $1 $1cided 2 try a $1fferent approach. The $1m $1rked $1gether, brainstorming ideas l8 into the $1ght. In the end, $1 $1nd a $1lution that $1s $1th effective & innovative. Thank u all 4 ur $1rd $1rk & $1dication!"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: However, the results of our experiment are not as expected. Therefore, I decided to try a different approach, and the team worked together, brainstorming ideas late into the night. In the end, we found a solution that is both effective and innovative, and I thank everyone for their hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 159,
+        "completion_tokens": 63,
+        "total_tokens": 222,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:10:44.497Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "results experiment expected. decided try different approach. team worked together brainstorming ideas late into night. end found solution effective innovative. Thank hard work dedication"
+        }
+      ],
+      "model": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The experiment results were as expected, prompting a decision to try a different approach. The team collaborated through late-night brainstorming sessions. Ultimately, they found an effective and innovative solution, appreciating the hard work and dedication involved.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 79,
+        "completion_tokens": 45,
+        "total_tokens": 124,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:29:16.475Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "However, the results of our experiment were not as expected. Therefore, we decided to try a different approach. The team worked together, brainstorming ideas late into the night. In the end, we found a solution that was both effective and innovative. Thank you all for your hard work and dedication!"
+        }
+      ],
+      "model": "gpt-4o-mini",
+      "originalModel": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The results of the experiment did not meet expectations, prompting the team to explore a different approach. They collaborated and brainstormed ideas late into the night. Ultimately, they discovered a solution that was both effective and innovative, appreciating everyone's hard work and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 52,
+        "total_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:29:17.670Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "However, the results of our experiment were not as expected. Therefore, we decided 2 try a different approach. The team worked together, brainstorming ideas l8 into the $1$3$4. In the end, we found a solution that was $1$3$4 effective & innovative. Thank u all 4 ur $1$3$4 $1$3$4 & dedication!"
+        }
+      ],
+      "model": "gpt-4o-mini",
+      "originalModel": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The results of the experiment were disappointing, prompting the team to explore an alternative approach. They collaborated and brainstormed late into the night, ultimately discovering a solution that was both effective and innovative. The team expressed gratitude for everyone's effort and dedication.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 133,
+        "completion_tokens": 50,
+        "total_tokens": 183,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:29:18.415Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "results experiment expected. decided try different approach. team worked together brainstorming ideas late into night. end found solution effective innovative. Thank hard work dedication"
+        }
+      ],
+      "model": "gpt-4o-mini",
+      "originalModel": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The team expected results from an experiment but chose to take a different approach. They collaborated and brainstormed ideas late into the night. Ultimately, they found an effective and innovative solution, appreciating the hard work and dedication involved.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 79,
+        "completion_tokens": 46,
+        "total_tokens": 125,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  }
+]
