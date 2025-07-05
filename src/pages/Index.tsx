@@ -63,7 +63,7 @@ const LlmCompressionAnalysis = ({ original, optimized }: { original: string; opt
         </div>
       </CardHeader>
       <CardContent>
-        <div className="text-xs text-muted-foreground">
+        <div className="text-base font-medium text-secondary">
           Removes stopwords and transition words to reduce tokens, without using slang or abbreviations.
         </div>
       </CardContent>
@@ -82,7 +82,7 @@ const BaselineAnalysis = ({ original, tokenCount }: { original: string; tokenCou
       </div>
     </CardHeader>
     <CardContent>
-      <div className="text-xs text-muted-foreground">
+      <div className="text-base font-medium text-secondary">
         This is your original, uncompressed prompt. It provides a baseline for token count and cost comparison.
       </div>
     </CardContent>
