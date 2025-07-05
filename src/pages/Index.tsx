@@ -33,7 +33,7 @@ const DEFAULT_EXAMPLE = EXAMPLES[0];
 const getOpenAITokenCount = async (text: string) => {
   // Call backend to get actual OpenAI token count
   try {
-    const res = await fetch("http://localhost:3001/api/tokenize", {
+    const res = await fetch("/api/tokenize", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text }),
@@ -70,7 +70,7 @@ const Index = () => {
     "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary of user input:'. Be concise and do not add any extra commentary."
   );
   const { toast } = useToast();
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api/chat";
+  const API_URL = "/api/chat";
   const [llmOptimizedPrompt, setLlmOptimizedPrompt] = useState("");
   const [originalTokenCount, setOriginalTokenCount] = useState(0);
   const [millennialTokenCount, setMillennialTokenCount] = useState(0);
@@ -465,7 +465,7 @@ const Index = () => {
                 <DialogHeader>
                   <DialogTitle>Just kidding</DialogTitle>
                 </DialogHeader>
-                <div className="py-4 text-lg">😜 This is top secret!<br/>No details for you.</div>
+                <div className="py-4 text-lg">😜 </div>
               </DialogContent>
             </Dialog>
           </p>
