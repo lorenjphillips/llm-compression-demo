@@ -41,15 +41,22 @@ export const SavingsBanner = ({ originalTokens, millennialTokens, llmOptimizedTo
     );
   } else if (millennialTokens > originalTokens) {
     note = (
-      <div className="flex flex-row items-center justify-center gap-3 text-red-800 mt-4 text-base font-medium w-full text-center">
-        <AlertTriangle className="h-6 w-6 text-red-500 flex-shrink-0" />
-        <span>
-          Over-compression <b>increased</b> your token count compared to the original!<br />
-          <span className="block mt-1 text-sm font-normal">
-            <b>Original:</b> {originalTokens.toLocaleString()} tokens &nbsp;|&nbsp; <b>Millennial:</b> {millennialTokens.toLocaleString()} tokens &nbsp;|&nbsp; <b>LLM-Optimized:</b> {llmOptimizedTokens.toLocaleString()} tokens
-          </span>
-          <br />For best results, use proven abbreviations or <b>LLM-optimized</b> compression, which actually reduces tokens.
-        </span>
+      <div className="flex flex-row items-center justify-center text-red-800 mt-4 text-base font-medium w-full text-center">
+        <div className="text-center">
+          <div className="mb-2">
+            Over-compression <b>increased</b> your token count compared to the original!
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-normal mb-2">
+            <span><b>Original:</b> {originalTokens.toLocaleString()} tokens</span>
+            <span className="text-red-300">|</span>
+            <span><b>Millennial:</b> {millennialTokens.toLocaleString()} tokens</span>
+            <span className="text-red-300">|</span>
+            <span><b>LLM-Optimized:</b> {llmOptimizedTokens.toLocaleString()} tokens</span>
+          </div>
+          <div>
+            For best results, use proven abbreviations or <b>LLM-optimized</b> compression, which actually reduces tokens.
+          </div>
+        </div>
       </div>
     );
   } else {

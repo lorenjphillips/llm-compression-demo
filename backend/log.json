@@ -1519,5 +1519,146 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2025-07-05T02:35:59.224Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "Yo, last night was wild! We literally stayed up till 3am grinding on this project, but honestly, it paid off. Big shoutout to the squad for keeping the vibes high and the snacks coming. Wouldn't have made it without you all!"
+        }
+      ],
+      "model": "gpt-4o-mini",
+      "originalModel": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: Last night involved an intense work session that lasted until 3am on a project, which ultimately was successful. The user expresses gratitude to their team for maintaining a positive atmosphere and providing snacks. They acknowledge that the project would not have been possible without the group's support.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 103,
+        "completion_tokens": 55,
+        "total_tokens": 158,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:36:00.153Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "Yo, lst nght was wld! We lit stayed up tll 3am grinding on this project, but honestly, it paid off. Big shoutout 2 the squad 4 keeping the vibes hgh & the snacks coming. Wouldn't have made it w/o u all!"
+        }
+      ],
+      "model": "gpt-4o-mini",
+      "originalModel": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: Last night was an exciting experience as we stayed up until 3 AM working on a project. The hard work was worth it, and I appreciate the team's energy and support. A special thanks to everyone for maintaining positive vibes and providing snacks throughout the night.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 53,
+        "total_tokens": 163,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-05T02:36:01.172Z",
+    "request": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert summarizer. Summarize the user's input in exactly 3 sentences. Output only the summary, starting with 'Summary:'. Be concise and do not add any extra commentary."
+        },
+        {
+          "role": "user",
+          "content": "Yo night wild! literally stayed up till 3am grinding project honestly paid off. Big shoutout squad keeping vibes high snacks coming. Wouldnt made without"
+        }
+      ],
+      "model": "gpt-4o-mini",
+      "originalModel": "gpt-4.1-mini"
+    },
+    "response": {
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Summary: The user had a late night, staying up until 3 AM working on a project that they feel was worthwhile. They express gratitude to their friends for maintaining a positive atmosphere and providing snacks during the grind. They believe they wouldn't have succeeded without their support.",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 82,
+        "completion_tokens": 53,
+        "total_tokens": 135,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
   }
 ]

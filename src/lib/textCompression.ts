@@ -133,7 +133,7 @@ const MILLENNIAL_PATTERNS: CompressionPattern[] = [
   { regex: /\bsee you\b/gi, replacement: 'cya', description: 'see you → cya', priority: 1 },
 
   // Safer vowel removal - only for longer words and more conservative
-  { regex: /\b([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([aeiouAEIOU])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]+)\b/g, replacement: '$1$3$4', description: 'remove single vowel from middle of long words', priority: 2 },
+  { regex: /\b([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([aeiouAEIOU])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]+)\b/g, replacement: ((match, p1, p2, p3, p4) => p1 + p3 + p4) as any, description: 'remove single vowel from middle of long words', priority: 2 },
   // Add more meme/short-form replacements
   { regex: /\bliterally\b/gi, replacement: 'lit', description: 'literally → lit', priority: 3 },
   { regex: /\bseriously\b/gi, replacement: 'srsly', description: 'seriously → srsly', priority: 3 },
