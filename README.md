@@ -1,4 +1,4 @@
-# Kobi Compression: Regex-Based Slang & Abbreviation System
+# Kobi Compression: Regex-Based Slang & Abbreviation System for Reducing Input Tokens
 
 ## 🚀 Getting Started: Development & Deployment
 
