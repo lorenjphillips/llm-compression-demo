@@ -1,6 +1,6 @@
 # Kobi Compression: Regex-Based Slang & Abbreviation System for Reducing Input Tokens
 
-## 🚀 Getting Started: Development & Deployment
+## Getting Started: Development & Deployment
 
 ### 1. Prerequisites
 - **Node.js** (v18+ recommended)
