@@ -31,7 +31,6 @@ cd ..
   ```env
   # For backend (if using external APIs)
   OPENAI_API_KEY=your_openai_key_here
-  # Add other keys as needed
   ```
 - **Note:** This project may not require API keys unless integrating with LLMs or external services.
 
