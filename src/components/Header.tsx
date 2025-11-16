@@ -1,44 +1,66 @@
-import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
 
 export const Header = () => {
-  const { theme, setTheme } = useTheme();
+  const [displayedText, setDisplayedText] = useState("");
+  const fullText = "> TOKENWISE";
+  const [showCursor, setShowCursor] = useState(true);
+
+  
+  useEffect(() => {
+    let index = 0;
+    const typingInterval = setInterval(() => {
+      if (index < fullText.length) {
+        setDisplayedText(fullText.substring(0, index + 1));
+        index++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 80);
+
+    return () => clearInterval(typingInterval);
+  }, []);
+
+  
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 530);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/95 border-b border-primary/30">
       <div className="w-full px-4 sm:px-10 py-4 mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <img src="/favicon.ico" alt="Logo" className="h-6 w-6 object-contain" />
+            <div className="h-8 w-8 rounded bg-primary/20 border border-primary/50 flex items-center justify-center relative">
+              <div className="absolute inset-0 bg-primary/10 animate-pulse" />
+              <span className="text-primary text-lg font-bold relative z-10">&gt;</span>
             </div>
-            <h1 className="text-xl font-bold text-foreground">KobiCompression</h1>
+            <h1 className="text-xl font-bold text-primary tracking-tight uppercase">
+              {displayedText}
+              <span
+                className={`inline-block ml-1 w-2 h-5 bg-primary ${showCursor ? 'opacity-100' : 'opacity-0'}`}
+                style={{ transition: 'opacity 0.1s' }}
+              />
+            </h1>
           </div>
           <div className="flex items-center gap-4">
             <div className="text-sm text-muted-foreground hidden sm:flex items-center gap-2">
-              Prompt Compression Playground by Lo
+              <span className="text-foreground/60">$</span> by Lo
               <Button
                 asChild
                 variant="link"
                 size="sm"
-                className="px-2 py-1 text-xs border border-[hsl(var(--secondary))] border-2"
+                className="px-2 py-1 text-xs border border-secondary/50 hover:border-secondary hover:bg-secondary/10 transition-all text-secondary hover:text-secondary"
               >
                 <a href="https://www.loren.fyi" target="_blank" rel="noopener noreferrer">
-                  www.loren.fyi
+                  loren.fyi
                 </a>
               </Button>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-xl"
-            >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
           </div>
         </div>
       </div>

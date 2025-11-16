@@ -2,113 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-/* KobiFrontend Design System - Custom Colors and Theme */
+/* Terminal Noir (Amber) Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Terminal Noir - Amber Palette */
+    --background: 12 10% 8%;           /* #12100D - deep brown-black */
+    --foreground: 37 100% 85%;         /* #FFD699 - warm amber */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 12 15% 12%;                /* #1A1612 - slightly lighter than bg */
+    --card-foreground: 37 100% 85%;    /* #FFD699 - amber text */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 12 15% 10%;             /* Darker than card */
+    --popover-foreground: 37 100% 85%;
 
-    /* KobiPrimary Colors */
-    --primary: 220 8% 76%; /* #BCC1CA - soft blue-gray */
-    --primary-foreground: 0 0% 98%;
+    /* Primary - Amber Glow */
+    --primary: 37 89% 62%;             /* #FDB73E - amber glow */
+    --primary-foreground: 12 10% 8%;   /* Dark text on amber */
 
-    --secondary: 24 58% 47%; /* #BE6731 - warm brown/orange */
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary - Cyan Accent */
+    --secondary: 185 100% 50%;         /* #00B9FF - cyan accent */
+    --secondary-foreground: 12 10% 8%;
 
-    --warning: 37 75% 70%; /* #F0B775 - light orange */
-    --warning-foreground: 222.2 84% 4.9%;
+    /* Warning */
+    --warning: 37 100% 50%;            /* #FF9500 - bright orange */
+    --warning-foreground: 12 10% 8%;
 
-    --destructive: 0 62% 68%; /* #E57373 - soft red */
-    --destructive-foreground: 0 0% 98%;
+    /* Destructive */
+    --destructive: 0 80% 55%;          /* #E53935 - error red */
+    --destructive-foreground: 37 100% 85%;
 
-    --success: 85 25% 60%; /* #A2B87A - muted green */
-    --success-foreground: 0 0% 98%;
+    /* Success - Terminal Green */
+    --success: 85 60% 55%;             /* #8BC34A - terminal green */
+    --success-foreground: 12 10% 8%;
 
-    /* Custom KobiColors */
-    --coval-green: 85 29% 41%; /* #748952 */
-    --graph-primary: 0 0% 83%; /* #D3D3D3 */
-    --button-primary: 186 29% 77%; /* #C1DBE1 */
+    /* Muted */
+    --muted: 37 50% 40%;               /* #995C00 - dim amber */
+    --muted-foreground: 37 60% 65%;    /* Lighter muted */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent */
+    --accent: 185 100% 50%;            /* Cyan */
+    --accent-foreground: 12 10% 8%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Border & Input */
+    --border: 37 40% 25%;              /* #664A1A - subtle amber border */
+    --input: 12 15% 15%;               /* #1F1D19 - input fields */
+    --ring: 37 89% 62%;                /* Amber glow for focus */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: var(--primary);
+    --radius: 0.25rem;                 /* Sharper corners for terminal feel */
 
-    --radius: 0.75rem; /* 12px for Kobidesign */
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (if needed) */
+    --sidebar-background: 12 15% 10%;
+    --sidebar-foreground: 37 100% 85%;
+    --sidebar-primary: 37 89% 62%;
+    --sidebar-primary-foreground: 12 10% 8%;
+    --sidebar-accent: 12 15% 15%;
+    --sidebar-accent-foreground: 37 100% 85%;
+    --sidebar-border: 37 40% 25%;
+    --sidebar-ring: 37 89% 62%;
   }
 
+  /* Dark mode is default for Terminal Noir, but provide fallback */
   .dark {
-    --background: 0 0% 7%; /* #121212 - very dark gray */
-    --foreground: 210 40% 98%;
-
-    --card: 0 0% 7%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 0 0% 7%;
-    --popover-foreground: 210 40% 98%;
-
-    /* Keep same primary/secondary in dark mode */
-    --primary: 220 8% 76%; /* #BCC1CA */
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 24 58% 47%; /* #BE6731 */
-    --secondary-foreground: 210 40% 98%;
-
-    --warning: 37 89% 62%; /* #fdb73e - slightly different orange */
-    --warning-foreground: 222.2 84% 4.9%;
-
-    --destructive: 24 100% 31%; /* #A03A00 - darker red */
-    --destructive-foreground: 210 40% 98%;
-
-    --success: 85 25% 50%; /* #7A9A5E - darker green */
-    --success-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: var(--primary);
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 12 10% 8%;
+    --foreground: 37 100% 85%;
+    --card: 12 15% 12%;
+    --card-foreground: 37 100% 85%;
+    --popover: 12 15% 10%;
+    --popover-foreground: 37 100% 85%;
+    --primary: 37 89% 62%;
+    --primary-foreground: 12 10% 8%;
+    --secondary: 185 100% 50%;
+    --secondary-foreground: 12 10% 8%;
+    --warning: 37 100% 50%;
+    --warning-foreground: 12 10% 8%;
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 37 100% 85%;
+    --success: 85 60% 55%;
+    --success-foreground: 12 10% 8%;
+    --muted: 37 50% 40%;
+    --muted-foreground: 37 60% 65%;
+    --accent: 185 100% 50%;
+    --accent-foreground: 12 10% 8%;
+    --border: 37 40% 25%;
+    --input: 12 15% 15%;
+    --ring: 37 89% 62%;
+    --sidebar-background: 12 15% 10%;
+    --sidebar-foreground: 37 100% 85%;
+    --sidebar-primary: 37 89% 62%;
+    --sidebar-primary-foreground: 12 10% 8%;
+    --sidebar-accent: 12 15% 15%;
+    --sidebar-accent-foreground: 37 100% 85%;
+    --sidebar-border: 37 40% 25%;
+    --sidebar-ring: 37 89% 62%;
   }
 }
 
 @layer base {
-  /* Base font size as specified in Kobidesign system */
+  /* Terminal Noir base font size - slightly larger for monospace readability */
   html {
-    font-size: 0.825rem; /* 13.2px */
+    font-size: 14px;
   }
 
   * {
@@ -116,23 +109,41 @@
   }
 
   body {
-    @apply min-h-screen bg-background text-foreground font-sans antialiased;
-    font-family: system-ui, -apple-system, sans-serif;
+    @apply min-h-screen bg-background text-foreground antialiased;
+    font-family: 'IBM Plex Mono', monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 
-  /* Custom focus styles - no outline, custom ring */
+  /* Custom focus styles with amber glow */
   *:focus {
     outline: none;
   }
 
   *:focus-visible {
-    @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
+    @apply ring-2 ring-primary;
+    box-shadow: 0 0 0 2px hsl(var(--background)),
+                0 0 8px hsl(var(--primary));
+  }
+
+  /* Heading styles with terminal aesthetic */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Code and pre elements */
+  code, pre {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
   }
 }
 
-/* Custom component styles following Kobipatterns */
+/* Custom component styles for TokenWise */
 @layer components {
   .content1 {
     @apply bg-card border border-border shadow-sm;
@@ -164,22 +175,121 @@
   }
 }
 
-/* Dynamic orange glow for Compress button */
-@keyframes orange-glow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(190, 103, 49, 0.7), 0 0 8px 2px rgba(190, 103, 49, 0.3);
+/* Terminal Noir Animations */
+
+/* Amber glow pulse for interactive elements */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.5),
+                0 0 10px hsl(var(--primary) / 0.3),
+                0 0 15px hsl(var(--primary) / 0.2);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(190, 103, 49, 0.2), 0 0 16px 6px rgba(190, 103, 49, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(190, 103, 49, 0.7), 0 0 8px 2px rgba(190, 103, 49, 0.3);
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.7),
+                0 0 20px hsl(var(--primary) / 0.5),
+                0 0 30px hsl(var(--primary) / 0.3);
   }
 }
 
-.button-orange-glow {
-  border: 2px solid hsl(var(--secondary));
-  box-shadow: 0 0 0 0 rgba(190, 103, 49, 0.7), 0 0 8px 2px rgba(190, 103, 49, 0.3);
-  animation: orange-glow 1.5s infinite;
-  transition: box-shadow 0.3s, border-color 0.3s;
+/* Text flicker effect */
+@keyframes text-flicker {
+  0%, 100% { opacity: 1; }
+  2% { opacity: 0.97; }
+  4% { opacity: 1; }
+  8% { opacity: 0.98; }
+  70% { opacity: 0.99; }
+  72% { opacity: 1; }
+}
+
+/* Scanline animation */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* CRT screen flicker */
+@keyframes crt-flicker {
+  0% { opacity: 0.97; }
+  50% { opacity: 0.99; }
+  100% { opacity: 1; }
+}
+
+/* Typing cursor blink */
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Number morph for token counts */
+@keyframes number-morph {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Card stagger reveal */
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glow pulse for buttons */
+.button-amber-glow {
+  border: 2px solid hsl(var(--primary));
+  background: hsl(var(--primary) / 0.1);
+  box-shadow: 0 0 5px hsl(var(--primary) / 0.5),
+              0 0 10px hsl(var(--primary) / 0.3),
+              inset 0 0 20px hsl(var(--primary) / 0.1);
+  animation: glow-pulse 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.button-amber-glow:hover {
+  background: hsl(var(--primary) / 0.2);
+  transform: translateY(-1px);
+}
+
+/* Terminal card styling */
+.terminal-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.1),
+              inset 0 0 20px hsl(var(--background) / 0.5);
+  animation: card-reveal 0.4s ease-out forwards;
+}
+
+.terminal-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.2),
+              inset 0 0 20px hsl(var(--background) / 0.5);
+}
+
+/* Subtle branch pulse for compression pipeline */
+@keyframes branch-pulse-subtle {
+  0%, 100% {
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 3px hsl(var(--primary) / 0.2);
+  }
+  50% {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.3);
+  }
+}
+
+/* Active branch animation */
+.branch-active {
+  animation: branch-pulse-subtle 2s ease-in-out infinite;
 }

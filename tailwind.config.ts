@@ -26,6 +26,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				mono: ['"IBM Plex Mono"', 'monospace'],
+				sans: ['"IBM Plex Mono"', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -78,7 +82,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom Kobicolors
+				// Custom TokenWise colors
 				'coval-green': 'hsl(var(--coval-green))',
 				'graph-primary': 'hsl(var(--graph-primary))',
 				'button-primary': 'hsl(var(--button-primary))',
@@ -89,7 +93,7 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
-				xl: '0.75rem' // 12px for Kobidesign
+				xl: '0.75rem' // 12px for TokenWise design
 			},
 			spacing: {
 				'oval-section': '2.5rem' // mb-10 equivalent

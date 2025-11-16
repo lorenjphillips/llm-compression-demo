@@ -10,8 +10,8 @@ export const TokenCounter = ({ text, className = "", tokenCount }: TokenCounterP
   const [estimatedTokenCount, setEstimatedTokenCount] = useState(0);
 
   useEffect(() => {
-    // Simple token estimation (more accurate would use tiktoken)
-    // Roughly 4 characters per token on average
+    
+    
     const estimatedTokens = Math.ceil(text.length / 4);
     setEstimatedTokenCount(estimatedTokens);
   }, [text]);
@@ -24,10 +24,10 @@ export const TokenCounter = ({ text, className = "", tokenCount }: TokenCounterP
   const displayCount = isActual ? tokenCount : estimatedTokenCount;
 
   return (
-    <div className={`flex items-center gap-2 text-sm ${isActual ? 'text-green-800' : 'text-muted-foreground'} ${className}`}>
+    <div className={`flex items-center gap-2 text-sm ${isActual ? 'text-secondary' : 'text-muted-foreground'} ${className}`}>
       <span>🪙</span>
       <span>
-        {isActual ? 'Tokens:' : 'Estimated Tokens:'} <span className={`font-medium ${isActual ? 'text-green-900' : 'text-foreground'}`}>{formatNumber(displayCount)}</span>
+        {isActual ? 'Tokens:' : 'Estimated Tokens:'} <span className={`font-medium ${isActual ? 'text-secondary font-semibold' : 'text-foreground'}`}>{formatNumber(displayCount)}</span>
       </span>
     </div>
   );

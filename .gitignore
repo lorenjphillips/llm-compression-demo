@@ -30,3 +30,5 @@ dist-ssr
 
 backend/.env
 .vercel
+
+CLAUDE.md

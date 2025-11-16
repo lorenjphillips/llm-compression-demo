@@ -6,6 +6,9 @@ import { ResultCard } from "@/components/ResultCard";
 import { SavingsBanner } from "@/components/SavingsBanner";
 import { CompressionPatterns } from "@/components/CompressionPatterns";
 import { TokenizationModal } from "@/components/TokenizationModal";
+import { CompressionPipeline } from "@/components/CompressionPipeline";
+import { ProcessingSteps } from "@/components/ProcessingSteps";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -20,20 +23,20 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const EXAMPLES = [
-  // Default example
+  
   "However, the results of our experiment were not as expected. Therefore, we decided to try a different approach. The team worked together, brainstorming ideas late into the night. In the end, we found a solution that was both effective and innovative. Thank you all for your hard work and dedication!",
-  // Fun/meme-friendly example
+  
   "Yo, last night was wild! We literally stayed up till 3am grinding on this project, but honestly, it paid off. Big shoutout to the squad for keeping the vibes high and the snacks coming. Wouldn't have made it without you all!",
-  // LLM prompt style example
+  
   "Summarize the following: The quick brown fox jumps over the lazy dog. Despite several obstacles, the fox remains determined and agile, while the dog is content to observe. What can we learn from their behavior?",
-  // Formal/technical example
+  
   "In accordance with the latest research, the implementation of transformer-based architectures has significantly improved the performance of natural language processing models. Further experimentation is required to optimize hyperparameters and reduce computational costs.",
 ];
 
 const DEFAULT_EXAMPLE = EXAMPLES[0];
 
 const getOpenAITokenCount = async (text: string) => {
-  // Call backend to get actual OpenAI token count
+  
   try {
     const res = await fetch("/api/tokenize", {
       method: "POST",
@@ -44,7 +47,7 @@ const getOpenAITokenCount = async (text: string) => {
     const data = await res.json();
     return data.tokens || 0;
   } catch (error) {
-    // fallback: rough estimate
+    
     return Math.ceil((text?.length || 0) / 4);
   }
 };
@@ -52,19 +55,19 @@ const getOpenAITokenCount = async (text: string) => {
 const LlmCompressionAnalysis = ({ original, optimized }: { original: string; optimized: string }) => {
   const analysis = analyzeCompression(original, optimized);
   return (
-    <Card className="bg-content1 border-1 shadow-sm rounded-xl">
+    <Card className="terminal-card">
       <CardHeader className="pb-3">
-        <CardTitle className="text-lg">
-          LLM Optimized Analysis
+        <CardTitle className="text-sm uppercase tracking-wider text-success flex items-center gap-2">
+          <span className="text-success">[✓]</span> LLM_Optimized
         </CardTitle>
-        <div className="flex gap-4 text-sm text-muted-foreground">
-          <span>Tokens saved: <strong className="text-primary">{analysis.tokenSavings}</strong></span>
-          <span>Reduction: <strong className="text-primary">{(analysis.efficiency * 100).toFixed(1)}%</strong></span>
+        <div className="flex flex-col gap-1 text-xs font-mono text-foreground/70 mt-2">
+          <span>tokens_saved: <strong className="text-success">{analysis.tokenSavings}</strong></span>
+          <span>reduction: <strong className="text-success">{(analysis.efficiency * 100).toFixed(1)}%</strong></span>
         </div>
       </CardHeader>
       <CardContent>
-        <div className="text-base font-medium text-secondary">
-          Removes stopwords and transition words to reduce tokens, without using slang or abbreviations.
+        <div className="text-sm text-foreground/70">
+          Removes stopwords and transition words to reduce tokens.
         </div>
       </CardContent>
     </Card>
@@ -72,18 +75,18 @@ const LlmCompressionAnalysis = ({ original, optimized }: { original: string; opt
 };
 
 const BaselineAnalysis = ({ original, tokenCount }: { original: string; tokenCount: number }) => (
-  <Card className="bg-content1 border-1 shadow-sm rounded-xl">
+  <Card className="terminal-card">
     <CardHeader className="pb-3">
-      <CardTitle className="text-lg">
-        Baseline (No Compression)
+      <CardTitle className="text-sm uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+        <span className="text-muted-foreground">[•]</span> Baseline
       </CardTitle>
-      <div className="flex gap-4 text-sm text-muted-foreground">
-        <span>Tokens: <strong className="text-primary">{tokenCount}</strong></span>
+      <div className="flex flex-col gap-1 text-xs font-mono text-foreground/70 mt-2">
+        <span>tokens: <strong className="text-muted-foreground">{tokenCount}</strong></span>
       </div>
     </CardHeader>
     <CardContent>
-      <div className="text-base font-medium text-secondary">
-        This is your original, uncompressed prompt. It provides a baseline for token count and cost comparison.
+      <div className="text-sm text-foreground/70">
+        Original, uncompressed prompt. Baseline for comparison.
       </div>
     </CardContent>
   </Card>
@@ -120,6 +123,7 @@ const Index = () => {
   const [originalOutputTokenCount, setOriginalOutputTokenCount] = useState(0);
   const [millennialOutputTokenCount, setMillennialOutputTokenCount] = useState(0);
   const [llmOptimizedOutputTokenCount, setLlmOptimizedOutputTokenCount] = useState(0);
+  const [processingStep, setProcessingStep] = useState<"compress" | "tokenize" | "query_openai" | null>(null);
 
   const handleCompress = async () => {
     if (!inputText.trim()) {
@@ -132,22 +136,24 @@ const Index = () => {
     }
     setIsLoading(true);
     setShowResults(true);
+    setProcessingStep("compress");
     setOriginalResponseError("");
     setMillennialResponseError("");
     setLlmResponseError("");
     setOriginalUsage(null);
     setMillennialUsage(null);
     setLlmUsage(null);
-    // 1. No Change
+    
     setOriginalPrompt(inputText);
-    // 2. Millennial
+    
     const millennialResult = compressText(inputText, 2);
     setMillennialPrompt(millennialResult.compressed);
     setCompressionResult(millennialResult);
-    // 3. LLM Optimized
+    
     const llmOpt = llmTokenOptimize(inputText);
     setLlmOptimizedPrompt(llmOpt);
-    // Token counts (actual) - run in parallel for better performance
+    
+    setProcessingStep("tokenize");
     const [originalTokens, millennialTokens, llmOptimizedTokens] = await Promise.all([
       getOpenAITokenCount(inputText),
       getOpenAITokenCount(millennialResult.compressed),
@@ -156,11 +162,12 @@ const Index = () => {
     setOriginalTokenCount(originalTokens);
     setMillennialTokenCount(millennialTokens);
     setLlmOptimizedTokenCount(llmOptimizedTokens);
-    // Get AI responses for all three
+    
+    setProcessingStep("query_openai");
     let originalAIResponse = "";
     let millennialAIResponse = "";
     let llmOptimizedAIResponse = "";
-    // Original
+    
     try {
       const originalRes = await fetch(API_URL, {
         method: "POST",
@@ -193,7 +200,7 @@ const Index = () => {
       setOriginalUsage(null);
       setOriginalOutputTokenCount(0);
     }
-    // Millennial
+    
     try {
       const millennialRes = await fetch(API_URL, {
         method: "POST",
@@ -226,7 +233,7 @@ const Index = () => {
       setMillennialUsage(null);
       setMillennialOutputTokenCount(0);
     }
-    // LLM Optimized
+    
     try {
       const llmOptRes = await fetch(API_URL, {
         method: "POST",
@@ -259,6 +266,7 @@ const Index = () => {
       setLlmUsage(null);
       setLlmOptimizedOutputTokenCount(0);
     }
+    setProcessingStep(null);
     setIsLoading(false);
   };
 
@@ -288,35 +296,60 @@ const Index = () => {
     <div className="relative w-full min-h-screen bg-background overflow-hidden">
       <WavyBackground />
       <Header />
-      <main className="relative w-full px-4 sm:px-10 py-8 mx-auto">
-        <div className="text-center mb-oval-section">
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Shrink Your Prompt, Save Tokens
+      <main className="relative w-full px-4 sm:px-10 py-8 mx-auto z-20">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold mb-4 text-primary uppercase tracking-tight" style={{ textShadow: '0 0 20px hsl(var(--primary) / 0.5)' }}>
+            &gt; Shrink Prompts, Save Tokens
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Reduce OpenAI AI costs with proprietary kobi compression.
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            Reduce OpenAI costs with compression algorithms
           </p>
+
+          <Card className="terminal-card border-secondary/50 mt-6 max-w-3xl mx-auto">
+            <CardContent className="p-4 text-sm font-mono">
+              <div className="flex gap-3 items-start">
+                <Info className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
+                <div className="text-left">
+                  <p className="text-secondary mb-2 uppercase tracking-wider">
+                    [ℹ] Comparison Mode Active
+                  </p>
+                  <p className="text-foreground/70 leading-relaxed">
+                    Test <span className="text-primary font-semibold">3 methods</span> simultaneously:{" "}
+                    <span className="text-muted-foreground">[1] Baseline</span>,{" "}
+                    <span className="text-warning">[2] Millennial</span>,{" "}
+                    <span className="text-success">[3] LLM-Optimized</span>.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           <div className="flex justify-center mt-4">
             <TokenizationModal>
-              <Button variant="secondary" size="sm" className="text-xs">
-                Learn why over-compression doesn't help
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-xs border-secondary text-secondary hover:bg-secondary/10 hover:border-secondary/80"
+              >
+                <HelpCircle className="h-3 w-3 mr-1" />
+                Why over-compression fails
               </Button>
             </TokenizationModal>
           </div>
         </div>
-        <Card className="bg-content1 border-1 shadow-sm rounded-xl p-6 md:p-8 mb-oval-section">
+        <Card className="terminal-card p-6 md:p-8 mb-10">
             <div className="grid lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-4">
                 <div className="space-y-2">
-                  <label className="text-lg font-medium">Enter Text or Use Examples to Test Compression:</label>
+                  <label className="text-sm font-medium text-primary uppercase tracking-wider">&gt; Input_Text:</label>
                   <Textarea
-                    placeholder="Paste your text here... (CMD + V)"
+                    placeholder="$ paste your text here..."
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     onFocus={() => {
                       if (inputText === DEFAULT_EXAMPLE) setInputText("");
                     }}
-                    className="min-h-[200px] resize-none"
+                    className="min-h-[200px] resize-none bg-input border-border focus:border-primary/50 focus:ring-primary/50 font-mono"
                   />
                   <div className="flex flex-wrap gap-2 mt-2">
                     {EXAMPLES.map((ex, idx) => (
@@ -325,14 +358,13 @@ const Index = () => {
                         type="button"
                         onClick={() => setInputText(ex)}
                         className={
-                          "px-3 py-1 rounded border text-xs transition " +
+                          "px-3 py-1 rounded border text-xs transition font-mono " +
                           (inputText === ex
-                            ? "bg-orange-500 text-white border-orange-500"
-                            : "bg-muted/50 border-gray-300 hover:bg-orange-100")
+                            ? "bg-primary/20 text-primary border-primary"
+                            : "bg-background border-border hover:bg-primary/10 hover:border-primary/50 text-foreground/70")
                         }
-                        style={{ fontFamily: 'inherit' }}
                       >
-                        Example {idx + 1}
+                        [ex{idx + 1}]
                       </button>
                     ))}
                   </div>
@@ -340,38 +372,45 @@ const Index = () => {
                 </div>
               </div>
               <div className="space-y-4">
-                <ModelSelector 
+                <ModelSelector
                   value={selectedModel}
                   onChange={setSelectedModel}
                 />
-                <div className="p-4 bg-muted/50 rounded-xl">
-                  <h4 className="font-medium mb-2">Live Stats</h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>Input tokens:</span>
-                      <span className="font-medium">{getTokenCount(inputText).toLocaleString()}</span>
+                <div className="p-4 bg-background border border-border rounded">
+                  <h4 className="font-medium mb-3 text-primary uppercase text-sm tracking-wider">&gt; Stats:</h4>
+                  <div className="space-y-2 text-sm font-mono">
+                    <div className="flex justify-between text-foreground/80">
+                      <span>tokens_in:</span>
+                      <span className="font-medium text-success">{getTokenCount(inputText).toLocaleString()}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Est. cost:</span>
-                      <span className="font-medium text-secondary">$0.{Math.ceil(inputText.length / 400).toString().padStart(2, '0')}</span>
+                    <div className="flex justify-between text-foreground/80">
+                      <span>cost_est:</span>
+                      <span className="font-medium text-warning">$0.{Math.ceil(inputText.length / 400).toString().padStart(2, '0')}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="flex gap-4 mt-6">
               <Button
                 onClick={handleCompress}
                 disabled={isLoading}
                 className={cn(
-                  "rounded-xl",
-                  inputText.trim() && !isLoading ? "bg-secondary text-secondary-foreground button-orange-glow" : ""
+                  "rounded uppercase tracking-wider font-semibold",
+                  inputText.trim() && !isLoading ? "button-amber-glow" : "bg-primary/20 border border-primary/30"
                 )}
               >
-                <Zap className="h-4 w-4 mr-2" />
-                Compress
+                {isLoading ? (
+                  <ProcessingSteps currentStep={processingStep} />
+                ) : (
+                  <>
+                    <Zap className="h-4 w-4 mr-2" />
+                    Compress
+                  </>
+                )}
               </Button>
-              <Button onClick={handleReset} variant="outline" disabled={isLoading} className="rounded-xl">
+              <Button onClick={handleReset} variant="outline" disabled={isLoading} className="rounded border-border hover:border-primary/50 hover:bg-primary/10">
                 <RotateCcw className="h-4 w-4 mr-2" />
                 Reset
               </Button>
@@ -426,21 +465,27 @@ const Index = () => {
         </Card>
         {showResults && (
           <div className="space-y-8">
-            {/* Three analysis cards side by side */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Baseline */}
-              <BaselineAnalysis original={inputText} tokenCount={originalTokenCount} />
-              {/* Millennial Compression Analysis */}
+
+            <div>
+              <SectionHeader
+                title=">> COMPRESSION_ANALYSIS"
+                subtitle="[token efficiency comparison]"
+                showArrows={true}
+              />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <BaselineAnalysis original={inputText} tokenCount={originalTokenCount} />
+
               {compressionResult && !isLoading ? (
-                <Card className="bg-content1 border-1 shadow-sm rounded-xl">
+                <Card className="terminal-card">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">
-                      Millennial Compression Analysis
+                    <CardTitle className="text-sm uppercase tracking-wider text-warning flex items-center gap-2">
+                      <span className="text-warning">[!]</span> Millennial
                     </CardTitle>
-                    <div className="flex gap-4 text-sm text-muted-foreground">
-                      <span>Tokens saved: <strong className="text-primary">{compressionResult.tokensSaved}</strong></span>
-                      <span>Reduction: <strong className="text-primary">{compressionResult.compressionRatio.toFixed(1)}%</strong></span>
-                      <span>Patterns used: <strong className="text-primary">{compressionResult.patterns.length}</strong></span>
+                    <div className="flex flex-col gap-1 text-xs font-mono text-foreground/70 mt-2">
+                      <span>tokens_saved: <strong className="text-warning">{compressionResult.tokensSaved}</strong></span>
+                      <span>reduction: <strong className="text-warning">{compressionResult.compressionRatio.toFixed(1)}%</strong></span>
+                      <span>patterns: <strong className="text-warning">{compressionResult.patterns.length}</strong></span>
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -456,13 +501,20 @@ const Index = () => {
                   </CardContent>
                 </Card>
               ) : <div />}
-              {/* LLM Optimized Compression Analysis */}
-              {llmOptimizedPrompt && !isLoading ? (
-                <LlmCompressionAnalysis original={inputText} optimized={llmOptimizedPrompt} />
-              ) : <div />}
+
+                {llmOptimizedPrompt && !isLoading ? (
+                  <LlmCompressionAnalysis original={inputText} optimized={llmOptimizedPrompt} />
+                ) : <div />}
+              </div>
             </div>
-            {/* Prompt result cards */}
-            <div className="grid lg:grid-cols-3 gap-6">
+
+            <div>
+              <SectionHeader
+                title=">> COMPRESSED_PROMPTS"
+                subtitle="[original vs compressed versions]"
+                showArrows={true}
+              />
+              <div className="grid lg:grid-cols-3 gap-6">
               <ResultCard
                 title="Original Prompt"
                 content={originalPrompt}
@@ -470,6 +522,7 @@ const Index = () => {
                 type="prompt"
                 tokenCount={originalTokenCount}
                 isOptimal={originalTokenCount > 0 && originalTokenCount <= millennialTokenCount && originalTokenCount <= llmOptimizedTokenCount}
+                badge={{ number: 1, color: "text-muted-foreground" }}
               />
               <ResultCard
                 title="Millennial Compression"
@@ -478,6 +531,7 @@ const Index = () => {
                 type="prompt"
                 tokenCount={millennialTokenCount}
                 isOptimal={millennialTokenCount > 0 && millennialTokenCount < originalTokenCount && millennialTokenCount <= llmOptimizedTokenCount}
+                badge={{ number: 2, color: "text-warning" }}
               />
               <ResultCard
                 title="LLM Optimized Compression"
@@ -486,8 +540,11 @@ const Index = () => {
                 type="prompt"
                 tokenCount={llmOptimizedTokenCount}
                 isOptimal={llmOptimizedTokenCount > 0 && llmOptimizedTokenCount < originalTokenCount && llmOptimizedTokenCount < millennialTokenCount}
+                badge={{ number: 3, color: "text-success" }}
               />
+              </div>
             </div>
+
             <SavingsBanner
               originalTokens={originalTokenCount}
               millennialTokens={millennialTokenCount}
@@ -495,7 +552,14 @@ const Index = () => {
               show={!isLoading && Boolean(originalPrompt && llmOptimizedPrompt)}
               isActualOpenAIStats={true}
             />
-            <div className="grid lg:grid-cols-3 gap-6">
+
+            <div>
+              <SectionHeader
+                title=">> AI_RESPONSES"
+                subtitle="[quality comparison]"
+                showArrows={true}
+              />
+              <div className="grid lg:grid-cols-3 gap-6">
               <ResultCard
                 title="AI Response (Original)"
                 content={originalResponseError ? originalResponseError : originalResponse}
@@ -518,16 +582,18 @@ const Index = () => {
                 tokenCount={llmOptimizedOutputTokenCount}
               />
             </div>
-            <div className="bg-gray-100 text-gray-600 rounded-xl px-6 py-4 flex items-center justify-center gap-3 shadow-sm mt-4">
-              <span className="text-base font-medium">
-                Compare the outputs yourself to see if the compression made an effect on AI's understanding of your original prompt
-              </span>
-            </div>
           </div>
+
+          <div className="terminal-card border-primary/30 rounded-lg px-6 py-4 flex items-center justify-center gap-3 mt-6">
+            <span className="text-sm font-mono text-foreground/70">
+              Compare the outputs yourself to see if the compression made an effect on AI's understanding of your original prompt
+            </span>
+          </div>
+        </div>
         )}
         <footer className="mt-16 py-8 border-t text-center text-sm text-muted-foreground">
           <p>
-            KobiCompression optimizes AI costs through intelligent and highly confidential proprietary compression algorithms.{" "}
+            TokenWise demonstrates how different compression techniques affect LLM token usage.{" "}
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="link" className="text-primary p-0 h-auto align-baseline">Learn more</Button>

@@ -82,7 +82,7 @@ const MILLENNIAL_PATTERNS: CompressionPattern[] = [
   // Texting/internet slang and abbreviations
   { regex: /\byou\b/gi, replacement: 'u', description: 'you → u', priority: 1 },
   { regex: /\byour\b/gi, replacement: 'ur', description: 'your → ur', priority: 1 },
-  { regex: /\byou\'re\b/gi, replacement: 'ur', description: "you're → ur", priority: 1 },
+  { regex: /\byou're\b/gi, replacement: 'ur', description: "you're → ur", priority: 1 },
   { regex: /\bare\b/gi, replacement: 'r', description: 'are → r', priority: 1 },
   { regex: /\bplease\b/gi, replacement: 'plz', description: 'please → plz', priority: 1 },
   { regex: /\bpeople\b/gi, replacement: 'ppl', description: 'people → ppl', priority: 1 },
@@ -96,8 +96,8 @@ const MILLENNIAL_PATTERNS: CompressionPattern[] = [
   { regex: /\blaugh(ing)? out loud\b/gi, replacement: 'lol', description: 'laugh(ing) out loud → lol', priority: 1 },
   { regex: /\boh my god\b/gi, replacement: 'omg', description: 'oh my god → omg', priority: 1 },
   { regex: /\bfor the win\b/gi, replacement: 'ftw', description: 'for the win → ftw', priority: 1 },
-  { regex: /\bI don\'t know\b/gi, replacement: 'idk', description: "I don't know → idk", priority: 1 },
-  { regex: /\bI don\'t care\b/gi, replacement: 'idc', description: "I don't care → idc", priority: 1 },
+  { regex: /\bI don't know\b/gi, replacement: 'idk', description: "I don't know → idk", priority: 1 },
+  { regex: /\bI don't care\b/gi, replacement: 'idc', description: "I don't care → idc", priority: 1 },
   { regex: /\bI love you\b/gi, replacement: 'ily', description: 'I love you → ily', priority: 1 },
   { regex: /\bsee you later\b/gi, replacement: 'cya l8r', description: 'see you later → cya l8r', priority: 1 },
   { regex: /\bwhat the heck\b/gi, replacement: 'wth', description: 'what the heck → wth', priority: 1 },
@@ -133,7 +133,7 @@ const MILLENNIAL_PATTERNS: CompressionPattern[] = [
   { regex: /\bsee you\b/gi, replacement: 'cya', description: 'see you → cya', priority: 1 },
 
   // Safer vowel removal - only for longer words and more conservative
-  { regex: /\b([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([aeiouAEIOU])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]+)\b/g, replacement: ((match, p1, p2, p3, p4) => p1 + p3 + p4) as any, description: 'remove single vowel from middle of long words', priority: 2 },
+  { regex: /\b([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([aeiouAEIOU])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]+)\b/g, replacement: ((match: string, p1: string, p2: string, p3: string, p4: string) => p1 + p3 + p4) as (substring: string, ...args: string[]) => string, description: 'remove single vowel from middle of long words', priority: 2 },
   // Add more meme/short-form replacements
   { regex: /\bliterally\b/gi, replacement: 'lit', description: 'literally → lit', priority: 3 },
   { regex: /\bseriously\b/gi, replacement: 'srsly', description: 'seriously → srsly', priority: 3 },
@@ -282,7 +282,7 @@ function applyCompressionPatterns(text: string, patterns: CompressionPattern[]):
       // Apply replacement with case preservation
       if (typeof pattern.replacement === 'function') {
         // Handle function replacements directly without preserveCase
-        result = result.replace(pattern.regex, pattern.replacement as any);
+        result = result.replace(pattern.regex, pattern.replacement as (substring: string, ...args: string[]) => string);
       } else {
         // Apply replacement with case preservation for string replacements
         result = result.replace(pattern.regex, (match) => {
@@ -509,7 +509,7 @@ export function llmTokenOptimize(text: string): string {
   }
 
   // Remove punctuation except for sentence boundaries (keep . ! ?)
-  optimized = optimized.replace(/[,:;\-—()\[\]{}"'`~@#$%^&*_+=<>\\/|]/g, '');
+  optimized = optimized.replace(/[,:;\-—()[\]{}"'`~@#$%^&*_+=<>\\/|]/g, '');
 
   // Remove stopwords (whole word, case-insensitive)
   optimized = optimized.replace(/\b\w+\b/g, (word) => {

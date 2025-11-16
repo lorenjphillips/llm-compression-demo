@@ -22,7 +22,7 @@ export const TokenizationModal = ({ children }: TokenizationModalProps) => {
         </DialogHeader>
         
         <div className="space-y-6">
-          {/* The Problem */}
+
           <div className="bg-red-50 border border-red-200 rounded-lg p-4">
             <h3 className="font-semibold text-red-800 mb-2 flex items-center gap-2">
               <XCircle className="h-4 w-4" />
@@ -68,7 +68,6 @@ export const TokenizationModal = ({ children }: TokenizationModalProps) => {
             </div>
           </div>
 
-          {/* The Solution */}
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
             <h3 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
               <CheckCircle className="h-4 w-4" />
@@ -114,7 +113,6 @@ export const TokenizationModal = ({ children }: TokenizationModalProps) => {
             </div>
           </div>
 
-          {/* Why This Happens */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <h3 className="font-semibold text-blue-800 mb-2 flex items-center gap-2">
               <HelpCircle className="h-4 w-4" />
@@ -133,7 +131,6 @@ export const TokenizationModal = ({ children }: TokenizationModalProps) => {
             </div>
           </div>
 
-          {/* Our Approach */}
           <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
             <h3 className="font-semibold text-purple-800 mb-3">Our Two-Level Approach</h3>
             <div className="grid md:grid-cols-2 gap-4">
@@ -158,7 +155,6 @@ export const TokenizationModal = ({ children }: TokenizationModalProps) => {
             </div>
           </div>
 
-          {/* Key Takeaways */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-gray-800 mb-3">Key Takeaways</h3>
             <ul className="space-y-2 text-sm text-gray-700">

@@ -16,55 +16,63 @@ export const SavingsBanner = ({ originalTokens, millennialTokens, llmOptimizedTo
   const llmSaved = originalTokens - llmOptimizedTokens;
   const llmPercent = Math.round((llmSaved / originalTokens) * 100);
 
-  let message = (
-    <div className={`flex flex-row items-center gap-4 text-base font-medium ${isActualOpenAIStats ? 'text-green-900' : 'text-success-foreground'}`}>
-      <CheckCircle className="h-5 w-5" />
-      <span>{isActualOpenAIStats ? 'Actual OpenAI token savings:' : 'Token savings:'}</span>
-      <span className="flex flex-row gap-2">
-        <span><span className="font-semibold">Millennial:</span> {millennialPercent}% ({millennialSaved.toLocaleString()} tokens)</span>
-        <span className="text-muted-foreground">|</span>
-        <span><span className="font-semibold">LLM-Optimized:</span> {llmPercent}% ({llmSaved.toLocaleString()} tokens)</span>
+  
+  const hasMillennialSavings = millennialSaved > 0;
+  const hasLlmSavings = llmSaved > 0;
+
+  const message = (
+    <div className="flex flex-row items-center gap-4 text-sm font-mono text-foreground">
+      {hasLlmSavings ? (
+        <CheckCircle className="h-4 w-4 text-success" />
+      ) : (
+        <AlertTriangle className="h-4 w-4 text-warning" />
+      )}
+      <span className="uppercase tracking-wider text-primary">&gt; Token Comparison:</span>
+      <span className="flex flex-row gap-3 text-xs">
+        <span>
+          <span className="text-muted-foreground">baseline:</span> {originalTokens.toLocaleString()}
+        </span>
+        <span className="text-border">|</span>
+        <span className={hasMillennialSavings ? "text-warning" : "text-destructive"}>
+          millennial: {millennialTokens.toLocaleString()} ({millennialSaved > 0 ? '-' : '+'}{Math.abs(millennialSaved).toLocaleString()})
+        </span>
+        <span className="text-border">|</span>
+        <span className={hasLlmSavings ? "text-success" : "text-muted-foreground"}>
+          llm_opt: {llmOptimizedTokens.toLocaleString()} ({llmSaved > 0 ? '-' : '+'}{Math.abs(llmSaved).toLocaleString()})
+        </span>
       </span>
     </div>
   );
 
-  // Educational note
+  
   let note = null;
-  if (millennialTokens < originalTokens && millennialTokens > llmOptimizedTokens) {
+  if (millennialTokens > originalTokens) {
+    
     note = (
-      <div className="flex flex-row items-center justify-center gap-3 text-yellow-800 mt-4 text-base font-medium w-full text-center">
-        <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
+      <div className="flex flex-row items-center justify-center gap-3 mt-4 text-sm font-mono w-full text-center text-destructive">
+        <AlertTriangle className="h-5 w-5 flex-shrink-0" />
         <span>
-          Millennial-style over-compression can sometimes <b>increase</b> token count or reduce readability. For real savings, use <b>LLM-optimized</b> or <b>tokenizer-aware</b> compression.
+          [!] Character-based compression increased tokens by {Math.abs(millennialSaved).toLocaleString()}. Token-aware compression saves {llmSaved.toLocaleString()} tokens.
         </span>
       </div>
     );
-  } else if (millennialTokens > originalTokens) {
+  } else if (llmSaved > millennialSaved && llmSaved > 0) {
+    
     note = (
-      <div className="flex flex-row items-center justify-center text-red-800 mt-4 text-base font-medium w-full text-center">
-        <div className="text-center">
-          <div className="mb-2">
-            Millennial over-compression <b>increased</b> your token count compared to the original!
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-normal mb-2">
-            <span><b>Original:</b> {originalTokens.toLocaleString()} tokens</span>
-            <span className="text-red-300">|</span>
-            <span><b>Millennial:</b> {millennialTokens.toLocaleString()} tokens</span>
-            <span className="text-red-300">|</span>
-            <span><b>LLM-Optimized:</b> {llmOptimizedTokens.toLocaleString()} tokens</span>
-          </div>
-          <div>
-            For best results, use proven abbreviations or <b>LLM-optimized</b> compression, which actually reduces tokens.
-          </div>
-        </div>
+      <div className="flex flex-row items-center justify-center gap-3 mt-4 text-sm font-mono w-full text-center text-success">
+        <CheckCircle className="h-5 w-5 flex-shrink-0" />
+        <span>
+          [✓] Token-aware compression saves {llmPercent}% ({llmSaved.toLocaleString()} tokens) vs {millennialPercent}% for character-based.
+        </span>
       </div>
     );
-  } else {
+  } else if (llmSaved > 0) {
+    
     note = (
-      <div className="flex flex-row items-center justify-center gap-3 text-green-800 mt-4 text-base font-medium w-full text-center">
-        <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+      <div className="flex flex-row items-center justify-center gap-3 mt-4 text-sm font-mono w-full text-center text-success">
+        <CheckCircle className="h-5 w-5 flex-shrink-0" />
         <span>
-          LLM-optimized compression reliably reduces tokens and cost while preserving meaning and readability.
+          [✓] Token-aware compression saved {llmSaved.toLocaleString()} tokens ({llmPercent}%).
         </span>
       </div>
     );
@@ -72,7 +80,7 @@ export const SavingsBanner = ({ originalTokens, millennialTokens, llmOptimizedTo
 
   return (
     <div className="animate-fade-up">
-      <div className={`bg-success text-success-foreground rounded-xl px-6 py-4 flex items-center justify-center gap-3 shadow-sm flex-col md:flex-row`}>
+      <div className="terminal-card px-6 py-4 flex items-center justify-center gap-3 flex-col md:flex-row">
         {message}
       </div>
       <div className="w-full flex justify-center">

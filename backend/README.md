@@ -1,6 +1,6 @@
-# KobiCompression Backend
+# TokenWise Backend
 
-This is a minimal Express backend for proxying OpenAI ChatGPT API calls and logging request/response history.
+This is a minimal Express backend for proxying OpenAI API calls and logging request/response history.
 
 ## Features
 - Securely proxies chat requests to OpenAI (API key not exposed to frontend)

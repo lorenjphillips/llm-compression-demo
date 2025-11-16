@@ -1,13 +1,13 @@
-# Kobi Compression: Regex-Based Slang & Abbreviation System for Reducing Input Tokens
+# TokenWise - Smart LLM Token Compression
 
 ### 1. Prerequisites
 - **Node.js** (v18+ recommended)
-- **npm** or **bun** (for dependency management)
+- **npm** or **bun**
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/your-username/coval-compression.git
-cd coval-compression
+git clone https://github.com/your-username/tokenwise.git
+cd tokenwise
 ```
 
 ### 3. Install Dependencies
@@ -29,10 +29,20 @@ cd ..
   ```env
   # For backend (if using external APIs)
   OPENAI_API_KEY=your_openai_key_here
-  ```
-- **Note:** This project may not require API keys unless integrating with LLMs or external services.
+  ``` 
 
-### 5. Running in Development
+### 5. Code Quality & Linting
+Check code for issues:
+```bash
+npm run lint
+```
+
+Auto-fix linting issues:
+```bash
+npm run lint:fix
+```
+
+### 6. Running in Development
 #### Frontend:
 ```bash
 npm run dev
@@ -48,7 +58,7 @@ npm run dev
 bun run dev
 ```
 
-### 6. Building for Production
+### 7. Building for Production
 #### Frontend:
 ```bash
 npm run build
@@ -64,7 +74,7 @@ npm run build
 bun run build
 ```
 
-### 7. Deployment
+### 8. Deployment
 
 #### Vercel Deployment (Recommended)
 This project is configured for Vercel deployment with serverless functions.
@@ -90,7 +100,7 @@ After deployment, you must configure the OpenAI API key:
 
 1. Go to your Vercel project dashboard:
    - Visit: https://vercel.com/dashboard
-   - Select your project (coval-compression)
+   - Select your project (tokenwise)
 
 2. Navigate to **Settings → Environment Variables**
 
