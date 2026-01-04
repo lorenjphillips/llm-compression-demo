@@ -2,7 +2,6 @@
  * Enhanced Regex-Based Text Compression Algorithm
  * 
  * Implements 4 compression levels with maximum millennial slang and vowel reduction
- * Level 4 (Ultra) removes vowels while maintaining readability and humor
  */
 
 export interface CompressionResult {
